@@ -8,9 +8,7 @@ package sustainability;
  *
  * @author wikto
  */
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class SustainabilityGUI extends javax.swing.JFrame {
 
@@ -18,6 +16,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
     BusService B = new BusService();
     IrishRail IR = new IrishRail();
     Luas L = new Luas();
+    protected String userEmis;
 
     /**
      * Creates new form SustainabilityGUI
@@ -30,6 +29,20 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         StationComboBox.setVisible(false);
         trainComboBox.setVisible(false);
         LastStopInput.setVisible(false);
+    }
+    
+    private void updateStationComboBox(ArrayList<String> list){
+        StationComboBox.removeAllItems();
+        for (String item : list) {
+            StationComboBox.addItem(item);
+        }
+    }
+    
+    private void updateTrainComboBox(ArrayList<String> list){
+        trainComboBox.removeAllItems();
+        for (String item : list) {
+            trainComboBox.addItem(item);
+        }
     }
 
     /**
@@ -59,6 +72,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         CarbonEmisDisplay = new javax.swing.JTextArea();
         homeButton = new javax.swing.JButton();
+        submitBtn = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -117,6 +131,13 @@ public class SustainabilityGUI extends javax.swing.JFrame {
 
         homeButton.setText("Back to Home");
 
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,23 +145,28 @@ public class SustainabilityGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(StationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(103, 103, 103)
-                                .addComponent(trainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DepartingStationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(92, 92, 92)
-                                .addComponent(TrainTypeLbl)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(StationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(103, 103, 103)
+                                    .addComponent(trainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(DepartingStationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(92, 92, 92)
+                                    .addComponent(TrainTypeLbl))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LastStopInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LastStopLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(50, 50, 50))
+                            .addComponent(LastStopLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +213,11 @@ public class SustainabilityGUI extends javax.swing.JFrame {
                     .addComponent(StationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(trainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LastStopInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(submitBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(homeButton)
                 .addContainerGap())
         );
@@ -211,7 +239,9 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         trainComboBox.setVisible(true);
         LastStopInput.setVisible(false);
         DepartingStationLbl.setText("Departing station:");
+        updateStationComboBox(IR.trainStation);
         TrainTypeLbl.setText("Train type:");
+        updateTrainComboBox(IR.trainType);
         LastStopLbl.setText("Last Stop:");
         LastStopInput.setText("");
     }//GEN-LAST:event_trainBtnActionPerformed
@@ -225,7 +255,9 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         trainComboBox.setVisible(true);
         LastStopInput.setVisible(true);
         DepartingStationLbl.setText("First Stop:");
+        updateStationComboBox(L.firstStop);
         TrainTypeLbl.setText("Last Stop:");
+        updateTrainComboBox(L.lastStop);
         LastStopLbl.setText("Luas Line:");
         LastStopInput.setText("");
     }//GEN-LAST:event_LuasBtnActionPerformed
@@ -241,9 +273,39 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         LastStopInput.setVisible(false);
         DepartingStationLbl.setText("");
         TrainTypeLbl.setText("Bus Type:");
+        updateTrainComboBox(B.busType);
         LastStopLbl.setText("");
         LastStopInput.setText("");
     }//GEN-LAST:event_BusBtnActionPerformed
+
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        if (LastStopInput.isVisible()){
+            L.setLuasLine(LastStopInput.getText());
+            CarbonEmisDisplay.setText("By taking the Luas, you had no carbon emissions! This is because the Luas is a fully electric service. Happy travelling!");
+        } else if (!DepartingStationLbl.isVisible()){
+            String busType = (String) trainComboBox.getSelectedItem();
+            B.setUserSelectBus(busType);
+            B.calcCarbonEmis();
+            if (busType.equals("Electric")) {
+                CarbonEmisDisplay.setText("You took one of TFI's emission free buses! These buses are fully electric, and therefore there are no carbon emissions! Safe journeys!");
+            } else if (busType.equals("Hybrid")) {
+                CarbonEmisDisplay.setText("You took one of TFI's hybrid buses! These buses produce 50% less co2 then a disel bus, estimated to be around " +B.getBusHCarbon()+ " metric tons per year on average. A car produces as estimated " +B.getCarCarbon()+ " metric tons of co2 per year. Safe journeys!");
+            } else {
+                CarbonEmisDisplay.setText("You took one of TFI's diesel buses! There buses produce less co2 than a car, so it's certi=ainly a step in the right direction! These buses produce " +B.getBusDCarbon()+ " metric tons of co2 per year on average. A car produces " +B.getCarCarbon()+ " per year on average. Safe journeys!");
+            }
+        } else {
+            IR.calcCarbonEmis();
+            String trainType = (String) trainComboBox.getSelectedItem();
+            if (trainType.equals("Intercity")) {
+                CarbonEmisDisplay.setText("Irish Rails' Intercity and Commuter trains produce 77% less co2 than a car, according to their adverts. By taking the intercity, you greatly reduced your carbon emissions, as the train produces " +IR.getTrainCarbon()+ " per year on average, while a car produces " +IR.getCarCarbon()+ " metric tons of carbon per year on average. Have fun travelling!");
+            } else if (trainType.equals("Commuter")){
+                CarbonEmisDisplay.setText("Irish Rails' Intercity and Commuter trains produce 77% less co2 than a car, according to their adverts. By taking the commuter, you greatly reduced your carbon emissions, as the train produces " +IR.getTrainCarbon()+ " per year on average, while a car produces " +IR.getCarCarbon()+ " metric tons of carbon per year on average. Have fun travelling!");
+            } else {
+                CarbonEmisDisplay.setText("Irish Rails' DART trains are completely electric! Therefore, they don't produce any co2, just like the Luas. Have fun travelling!");
+            }
+        }
+    }//GEN-LAST:event_submitBtnActionPerformed
 
 
     /**
@@ -288,6 +350,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel publicTransportLabel;
+    private javax.swing.JButton submitBtn;
     private javax.swing.JRadioButton trainBtn;
     private javax.swing.JComboBox<String> trainComboBox;
     // End of variables declaration//GEN-END:variables

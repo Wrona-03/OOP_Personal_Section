@@ -46,4 +46,8 @@ public class IrishRail implements EmissionCalculator {
     public double getTrainCarbon() {
         return trainCarbon;
     }
+    
+    public double getCarCarbon(){
+        return carCarbon;
+    }
 }

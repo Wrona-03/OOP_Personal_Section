@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class BusService implements EmissionCalculator {
 
     protected ArrayList<String> busType;
+    protected String userSelectBus;
     protected double carCarbon;
     protected double busDCarbon;
     protected double busHCarbon;
@@ -22,23 +23,33 @@ public class BusService implements EmissionCalculator {
         busType.add(0, "Electric");
         busType.add(1, "Hybrid");
         busType.add(2, "Diesal");
+        userSelectBus = " ";
         carCarbon = 4600;
         busDCarbon = 0.0;
         busHCarbon = 0.0;
     }
 
-    public ArrayList<String> getBusType() {
-        return busType;
+    public void setUserSelectBus(String userSelectBus) {
+        this.userSelectBus = userSelectBus;
     }
 
-    public void setBusType(ArrayList<String> busType) {
-        this.busType = busType;
-    }
 
     @Override
     public void calcCarbonEmis() {
         busDCarbon = 3200;
         busHCarbon = 3200 / 2;
+    }
+    
+    public double getBusDCarbon(){
+        return busDCarbon;
+    }
+    
+    public double getBusHCarbon(){
+        return busHCarbon;
+    }
+
+    public double getCarCarbon() {
+        return carCarbon;
     }
 
 }
