@@ -24,7 +24,7 @@ public class Luas {
         firstStop.add("Cookstown");
         firstStop.add("Saggart");
         firstStop.add("Fortunestown");
-        firstStop.add("Citywest Campus");
+        firstStop.add("Citywest");
         firstStop.add("Cheeverstown");
         firstStop.add("Fettercairn");
         firstStop.add("Belgard");
@@ -48,15 +48,15 @@ public class Luas {
         firstStop.add("Busaras");
         firstStop.add("Connolly");
         firstStop.add("George's Dock");
-        firstStop.add("Mayor Square - NCI");
+        firstStop.add("Mayor Square");
         firstStop.add("Spencer Dock");
         firstStop.add("The Point");
         firstStop.add("Bride's Glen");
         firstStop.add("Cherrywood");
         firstStop.add("Laughanstown");
         firstStop.add("Carrickmines");
-        firstStop.add("Ballyogan Wood");
-        firstStop.add("Leopardstown Valley");
+        firstStop.add("Ballyogan");
+        firstStop.add("Leopardstown");
         firstStop.add("The Gallops");
         firstStop.add("Glencairn");
         firstStop.add("Central Park");
@@ -72,7 +72,7 @@ public class Luas {
         firstStop.add("Renelagh");
         firstStop.add("Charlemont");
         firstStop.add("Harcourt");
-        firstStop.add("St Stephen's Green");
+        firstStop.add("St Stephen's");
         firstStop.add("Dawson");
         firstStop.add("Westmoreland");
         firstStop.add("O'Connell - GPO");
@@ -81,7 +81,7 @@ public class Luas {
         firstStop.add("Marlborough");
         firstStop.add("Parnell");
         firstStop.add("Dominick");
-        firstStop.add("Broadstone - University");
+        firstStop.add("Broadstone");
         firstStop.add("Grangegorman");
         firstStop.add("Phibsborough");
         firstStop.add("Cabra");
@@ -93,7 +93,7 @@ public class Luas {
         lastStop.add("Cookstown");
         lastStop.add("Saggart");
         lastStop.add("Fortunestown");
-        lastStop.add("Citywest Campus");
+        lastStop.add("Citywest");
         lastStop.add("Cheeverstown");
         lastStop.add("Fettercairn");
         lastStop.add("Belgard");
@@ -117,7 +117,7 @@ public class Luas {
         lastStop.add("Busaras");
         lastStop.add("Connolly");
         lastStop.add("George's Dock");
-        lastStop.add("Mayor Square - NCI");
+        lastStop.add("Mayor Square");
         lastStop.add("Spencer Dock");
         lastStop.add("The Point");
         lastStop.add("Bride's Glen");
@@ -125,7 +125,7 @@ public class Luas {
         lastStop.add("Laughanstown");
         lastStop.add("Carrickmines");
         lastStop.add("Ballyogan Wood");
-        lastStop.add("Leopardstown Valley");
+        lastStop.add("Leopardstown");
         lastStop.add("The Gallops");
         lastStop.add("Glencairn");
         lastStop.add("Central Park");
@@ -141,7 +141,7 @@ public class Luas {
         lastStop.add("Renelagh");
         lastStop.add("Charlemont");
         lastStop.add("Harcourt");
-        lastStop.add("St Stephen's Green");
+        lastStop.add("St Stephen's");
         lastStop.add("Dawson");
         lastStop.add("Westmoreland");
         lastStop.add("O'Connell - GPO");
@@ -150,7 +150,7 @@ public class Luas {
         lastStop.add("Marlborough");
         lastStop.add("Parnell");
         lastStop.add("Dominick");
-        lastStop.add("Broadstone - University");
+        lastStop.add("Broadstone");
         lastStop.add("Grangegorman");
         lastStop.add("Phibsborough");
         lastStop.add("Cabra");

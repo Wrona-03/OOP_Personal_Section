@@ -17,6 +17,7 @@ public class SustainabilityReturn {
         // TODO code application logic here
         SustainabilityGUI myGUI = new SustainabilityGUI();
         myGUI.setVisible(true);
+        myGUI.setResizable(false);
     }
     
 }

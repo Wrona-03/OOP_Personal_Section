@@ -17,6 +17,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
     IrishRail IR = new IrishRail();
     Luas L = new Luas();
     protected String userEmis;
+    
 
     /**
      * Creates new form SustainabilityGUI
@@ -29,6 +30,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         StationComboBox.setVisible(false);
         trainComboBox.setVisible(false);
         LastStopInput.setVisible(false);
+        
     }
     
     private void updateStationComboBox(ArrayList<String> list){
@@ -81,146 +83,121 @@ public class SustainabilityGUI extends javax.swing.JFrame {
         LastStopLbl1.setText("Last Stop:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(java.awt.Color.darkGray);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        publicTransportLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         publicTransportLabel.setText("Public Transport");
+        getContentPane().add(publicTransportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 6, -1, -1));
 
         buttonGroup1.add(trainBtn);
+        trainBtn.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        trainBtn.setForeground(new java.awt.Color(49, 255, 88));
         trainBtn.setText("Train");
         trainBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 trainBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(trainBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 60, 20));
 
         buttonGroup1.add(LuasBtn);
+        LuasBtn.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        LuasBtn.setForeground(new java.awt.Color(49, 255, 88));
         LuasBtn.setText("Luas");
         LuasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LuasBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(LuasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 60, 20));
 
         buttonGroup1.add(BusBtn);
+        BusBtn.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        BusBtn.setForeground(new java.awt.Color(49, 255, 88));
         BusBtn.setText("Bus");
         BusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BusBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(BusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 60, 20));
 
+        QuestionLbl.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         QuestionLbl.setText("What mode of transport did you take?");
+        getContentPane().add(QuestionLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 28, -1, -1));
 
+        DepartingStationLbl.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         DepartingStationLbl.setText("Departing Station:");
+        getContentPane().add(DepartingStationLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, -1));
 
+        TrainTypeLbl.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         TrainTypeLbl.setText("Train type:");
+        getContentPane().add(TrainTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 70, -1));
 
+        LastStopLbl.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         LastStopLbl.setText("Last Stop:");
+        getContentPane().add(LastStopLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 70, 20));
 
+        StationComboBox.setBackground(new java.awt.Color(49, 255, 88));
+        StationComboBox.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        StationComboBox.setForeground(new java.awt.Color(20, 102, 35));
         StationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         StationComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StationComboBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(StationComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 108, -1, -1));
 
+        trainComboBox.setBackground(new java.awt.Color(49, 255, 88));
+        trainComboBox.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        trainComboBox.setForeground(new java.awt.Color(20, 102, 35));
         trainComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        trainComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trainComboBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(trainComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 108, -1, -1));
 
+        LastStopInput.setBackground(new java.awt.Color(49, 255, 88));
+        LastStopInput.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        LastStopInput.setForeground(new java.awt.Color(20, 102, 35));
+        LastStopInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LastStopInputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LastStopInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 108, 75, -1));
+
+        CarbonEmisDisplay.setEditable(false);
         CarbonEmisDisplay.setColumns(20);
+        CarbonEmisDisplay.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        CarbonEmisDisplay.setForeground(new java.awt.Color(20, 102, 35));
+        CarbonEmisDisplay.setLineWrap(true);
         CarbonEmisDisplay.setRows(5);
+        CarbonEmisDisplay.setCaretColor(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(CarbonEmisDisplay);
 
-        homeButton.setText("Back to Home");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 470, 60));
 
+        homeButton.setBackground(new java.awt.Color(49, 255, 88));
+        homeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        homeButton.setForeground(new java.awt.Color(20, 102, 35));
+        homeButton.setText("Back to Home");
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 267, -1, -1));
+
+        submitBtn.setBackground(new java.awt.Color(49, 255, 88));
+        submitBtn.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        submitBtn.setForeground(new java.awt.Color(20, 102, 35));
         submitBtn.setText("Submit");
         submitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitBtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(StationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(103, 103, 103)
-                                    .addComponent(trainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(DepartingStationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(92, 92, 92)
-                                    .addComponent(TrainTypeLbl))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LastStopInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LastStopLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(QuestionLbl)
-                                .addGap(93, 93, 93))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(publicTransportLabel)
-                                .addGap(142, 142, 142)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LuasBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(trainBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(homeButton)
-                        .addGap(191, 191, 191))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(trainBtn)
-                        .addGap(5, 5, 5)
-                        .addComponent(LuasBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BusBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(publicTransportLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QuestionLbl)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DepartingStationLbl)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(LastStopLbl)
-                        .addComponent(TrainTypeLbl)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(StationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(trainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LastStopInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(submitBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(homeButton)
-                .addContainerGap())
-        );
+        getContentPane().add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,7 +269,7 @@ public class SustainabilityGUI extends javax.swing.JFrame {
             } else if (busType.equals("Hybrid")) {
                 CarbonEmisDisplay.setText("You took one of TFI's hybrid buses! These buses produce 50% less co2 then a disel bus, estimated to be around " +B.getBusHCarbon()+ " metric tons per year on average. A car produces as estimated " +B.getCarCarbon()+ " metric tons of co2 per year. Safe journeys!");
             } else {
-                CarbonEmisDisplay.setText("You took one of TFI's diesel buses! There buses produce less co2 than a car, so it's certi=ainly a step in the right direction! These buses produce " +B.getBusDCarbon()+ " metric tons of co2 per year on average. A car produces " +B.getCarCarbon()+ " per year on average. Safe journeys!");
+                CarbonEmisDisplay.setText("You took one of TFI's diesel buses! There buses produce less co2 than a car, so it's certainly a step in the right direction! These buses produce " +B.getBusDCarbon()+ " metric tons of co2 per year on average. A car produces " +B.getCarCarbon()+ " per year on average. Safe journeys!");
             }
         } else {
             IR.calcCarbonEmis();
@@ -306,6 +283,14 @@ public class SustainabilityGUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void trainComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trainComboBoxActionPerformed
+
+    private void LastStopInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastStopInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LastStopInputActionPerformed
 
 
     /**
